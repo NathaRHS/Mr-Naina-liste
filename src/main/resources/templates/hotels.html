@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Hôtels</title>
+</head>
+<style>
+    /* /* @keyframes rotate{
+        from{
+            transform: rotate(360deg);
+        }
+        to{
+            
+            transform: rotate(0deg);
+        }
+    }
+
+        @keyframes slide{
+        from{
+            transform: translateX(5000px);
+        }
+        to{
+            
+            transform: translateX(0px);
+        } 
+    } */
+    *{
+        font-family: 'Poppins';
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: none;
+    }
+    td:hover{
+        display: none;
+    }
+    th, td {
+        padding: 8px 12px;
+        text-align: left;
+        
+    }
+    td{
+        animation: slide  ease 2s;
+    }
+    td:hover{
+        background-color: #d3d3d3;
+    }
+    th {
+        background-color: #4b7bff;
+        animation: rotate  ease 2s;
+    }
+</style>
+<body>
+    <h1>Liste des Hôtels</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Distance de l'aéroport</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="hotel : ${hotels}">
+                <td th:text="${hotel.idHotel}"></td>
+                <td th:text="${hotel.nom}"></td>
+                <td th:text="${hotel.adresse}"></td>
+                <td th:text="${hotel.distanceFromAeroport}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
